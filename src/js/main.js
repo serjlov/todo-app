@@ -1,12 +1,25 @@
 import "../css/style.css";
 import { getNextCheckboxId } from "./utils";
 
-// Get references to elements
+// References to elements
 const btnList = document.getElementById("add-list");
 const input = document.getElementById("input-list");
 const ulList = document.getElementById("ul-list");
 
-// Function to save the current list to local storage
+// Function to apply styles based on checkbox state
+function applyStyles(checkbox, liText) {
+  if (checkbox.checked) {
+    liText.style.textDecoration = "line-through";
+    liText.style.color = "#E0B0FF";
+    liText.style.opacity = 0.5;
+  } else {
+    liText.style.textDecoration = "none";
+    liText.style.color = "white";
+    liText.style.opacity = 1;
+  }
+}
+
+// Function to save the list to local storage
 function saveListToLocalStorage() {
   const listItems = [];
   const listElements = ulList.querySelectorAll(".ul-inner");
@@ -18,7 +31,7 @@ function saveListToLocalStorage() {
     listItems.push({
       id: checkbox.id,
       text: liText.innerText,
-      checked: checkbox.checked,
+      checked: checkbox.checked, // Save the checkbox state
     });
   });
 
@@ -44,15 +57,13 @@ function addItemToList(text, checked, id = null) {
   const ulInner = document.createElement("div");
   ulInner.classList.add("ul-inner");
 
-  // If ID is not provided, generate a new one
   const checkboxId = id || `checkbox-list-id_${getNextCheckboxId()}`;
 
-  // Create a checkbox with a unique ID
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.classList.add("checkbox-list");
   checkbox.setAttribute("id", checkboxId);
-  checkbox.checked = checked;
+  checkbox.checked = checked; // Initialize with the correct state
 
   const liText = document.createElement("li");
   liText.classList.add("li-list");
@@ -62,23 +73,17 @@ function addItemToList(text, checked, id = null) {
   deleteIcon.classList.add("delete-list");
   deleteIcon.innerText = "🗙";
 
-  checkbox.addEventListener("change", () => {
-    if (checkbox.checked) {
-      liText.style.textDecoration = "line-through";
-      liText.style.color = "#E0B0FF";
-      liText.style.opacity = 0.5;
-    } else {
-      liText.style.textDecoration = "none";
-      liText.style.color = "white";
-      liText.style.opacity = 1;
-    }
+  // Apply styles based on the checkbox state
+  applyStyles(checkbox, liText);
 
-    saveListToLocalStorage(); // Save changes to local storage
+  checkbox.addEventListener("change", () => {
+    applyStyles(checkbox, liText); // Apply styles when the checkbox is changed
+    saveListToLocalStorage(); // Save the updated list
   });
 
   deleteIcon.addEventListener("click", () => {
     ulInner.remove();
-    saveListToLocalStorage(); // Save after deleting
+    saveListToLocalStorage(); // Save after deleting an item
   });
 
   ulInner.append(checkbox);
@@ -88,7 +93,7 @@ function addItemToList(text, checked, id = null) {
   ulList.append(ulInner);
 }
 
-// Event listener for the "Add" button
+// Event handler for the "Add" button
 btnList.addEventListener("click", () => {
   if (input.value === "") {
     alert("Please enter text before adding it to the list!");
@@ -100,13 +105,13 @@ btnList.addEventListener("click", () => {
   }
 });
 
-// Event listener for the "Enter" key to trigger list addition
+// Trigger list addition with "Enter" key
 input.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
     event.preventDefault();
-    btnList.click(); // Trigger the click event on the "Add" button
+    btnList.click(); // Simulate click on the "Add" button
   }
 });
 
-// Load the list from local storage when the page loads
+// Load the list when the page is loaded
 window.addEventListener("load", loadListFromLocalStorage);
