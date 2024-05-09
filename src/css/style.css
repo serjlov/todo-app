@@ -32,7 +32,7 @@
     @apply mt-3;
   }
   .li-list {
-    @apply text-2xl sm:text-lg lg:text-lg 2xl:text-xl text-white flex items-start overflow-auto overflow-y-hidden break-words pt-0.5 pl-2;
+    @apply text-2xl sm:text-lg lg:text-lg 2xl:text-xl text-white flex items-start overflow-auto overflow-y-hidden break-words pl-2;
   }
   .title-list {
     @apply text-3xl text-white sm:text-2xl lg:text-2xl pb-3 flex flex-row justify-start items-start;
@@ -41,12 +41,12 @@
     @apply flex flex-row justify-start items-start;
   }
   .ul-inner {
-    @apply flex flex-row justify-start relative;
+    @apply flex flex-row items-center relative;
   }
   .checkbox-list {
-    @apply w-5 sm:w-4 rounded-lg;
+    @apply h-7 w-4 sm:h-4 rounded-lg;
   }
   .delete-list {
-    @apply absolute text-white right-0 top-0.5 2xl:top-0 text-2xl sm:text-xl lg:text-xl cursor-pointer;
+    @apply absolute text-white right-0 items-center text-2xl sm:text-xl lg:text-xl cursor-pointer;
   }
 }
