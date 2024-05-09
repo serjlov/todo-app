@@ -1,0 +1,52 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  @font-face {
+    font-family: Nunito;
+    font-weight: 400; /* 400 regular, 500 medium, 700 bold */
+    font-style: normal;
+    src: url("/fonts/nunito/Nunito-VariableFont_wght.ttf") format("opentype");
+  }
+
+  html {
+    font-family: Nunito, sistem-ui, sans-serif;
+  }
+}
+
+@layer components {
+  body {
+    @apply bg-zinc-950 flex justify-center items-center h-screen mx-2;
+  }
+  #app {
+    @apply bg-[#3627496e] shadow-[0px_20px_207px_10px_rgba(165,_39,_255,_0.48)] h-3/4 sm:h-1/2 w-2/3 sm:w-full lg:w-full border border-white flex flex-col py-3 px-5 rounded-md overflow-auto;
+  }
+  #input-list {
+    @apply pl-2 py-2.5 w-full rounded-md mr-1 text-xl  sm:text-lg lg:text-lg;
+  }
+  #add-list {
+    @apply rounded-md text-white bg-[#872bff6e] py-2.5 px-10 w-3/12 flex justify-center text-xl sm:text-lg lg:text-lg;
+  }
+  #ul-list {
+    @apply mt-3;
+  }
+  .li-list {
+    @apply text-2xl sm:text-lg lg:text-lg 2xl:text-xl text-white flex items-start overflow-auto overflow-y-hidden break-words pt-0.5 pl-2;
+  }
+  .title-list {
+    @apply text-3xl text-white sm:text-2xl lg:text-2xl pb-3 flex flex-row justify-start items-start;
+  }
+  .app-container {
+    @apply flex flex-row justify-start items-start;
+  }
+  .ul-inner {
+    @apply flex flex-row justify-start relative;
+  }
+  .checkbox-list {
+    @apply w-5 sm:w-4 rounded-lg;
+  }
+  .delete-list {
+    @apply absolute text-white right-0 top-0.5 2xl:top-0 text-2xl sm:text-xl lg:text-xl cursor-pointer;
+  }
+}
