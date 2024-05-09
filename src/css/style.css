@@ -32,10 +32,10 @@
     @apply mt-3;
   }
   .li-list {
-    @apply text-2xl sm:text-lg lg:text-lg 2xl:text-xl text-white flex items-start overflow-auto overflow-y-hidden break-words pl-2;
+    @apply text-3xl sm:text-lg lg:text-2xl 2xl:text-2xl text-white flex items-start overflow-auto overflow-y-hidden break-words pl-2;
   }
   .title-list {
-    @apply text-3xl text-white sm:text-2xl lg:text-2xl pb-3 flex flex-row justify-start items-start;
+    @apply text-3xl sm:pb-0 text-white w-max sm:text-2xl lg:text-3xl pb-3 flex flex-row justify-start items-start;
   }
   .app-container {
     @apply flex flex-row justify-start items-start;
@@ -44,9 +44,18 @@
     @apply flex flex-row items-center relative;
   }
   .checkbox-list {
-    @apply h-7 w-4 sm:h-4 rounded-lg;
+    @apply h-7 w-5 sm:h-5 rounded-lg;
   }
   .delete-list {
-    @apply absolute text-white right-0 items-center text-2xl sm:text-xl lg:text-xl cursor-pointer;
+    @apply absolute text-white right-0 items-center text-3xl sm:text-2xl lg:text-2xl cursor-pointer;
+  }
+  .span-title {
+    @apply opacity-15 w-max pb-3 pl-1 sm:pl-1 sm:pb-1 sm:w-full text-white text-3xl sm:text-2xl lg:text-3xl 2xl:text-3xl;
+  }
+  .app-titles {
+    @apply flex flex-wrap items-center relative;
+  }
+  #date {
+    @apply text-white text-2xl absolute top-1 right-0 opacity-50 sm:text-xl lg:text-2xl;
   }
 }

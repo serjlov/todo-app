@@ -1,6 +1,10 @@
 import "../css/style.css";
 import { getNextCheckboxId } from "./utils";
 
+const date = new Date().toLocaleDateString();
+const dateID = document.getElementById("date");
+dateID.innerHTML = date;
+
 // References to elements
 const btnList = document.getElementById("add-list");
 const input = document.getElementById("input-list");
