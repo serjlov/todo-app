@@ -71,7 +71,7 @@ function addItemToList(text, checked, id = null) {
 
   const deleteIcon = document.createElement("span");
   deleteIcon.classList.add("delete-list");
-  deleteIcon.innerText = "🗙";
+  deleteIcon.innerText = "x";
 
   // Apply styles based on the checkbox state
   applyStyles(checkbox, liText);
